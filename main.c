@@ -66,22 +66,55 @@ void carve_passages(int x, int y)
         //printf("dirs[i] = dirs[r] == %d = %d\n", dirs[i], dirs[r]);
         dirs[r] = temp;
         //printf("dirs[r] = temp = %d = %d\n", dirs[i], temp);
+        printf("dirs[%d] = %d\n", i, dirs[i]);
     }
 
     maze[x][y] = PATH;
 
+    for(int i = 0; i < 4; i++)
+    {
+        printf("ENDING dirs[%d] = %d\n", i, dirs[i]);
+    }
 
-    for (int i = 0; i < 4; i++) {
+    printf(" ENDING 0 dirs[%d] = %d\n", 0, dirs[0]);
+
+    for (int i = 0; i < 4; i++) 
+    {
         int dx = 0, dy = 0;
-        switch (dirs[i]) {
-        case 0: dy = -2; break; // Up
-        case 1: dx = 2; break; // Right
-        case 2: dy = 2; break; // Down
-        case 3: dx = -2; break; // Left
+        switch (dirs[i]) 
+        {
+            case 0: 
+            {
+                dy = -2; 
+                printf("case 0 selected!\n");
+                break; // Up
+            }
+            case 1: 
+            {
+                dx = 2; 
+                printf("case 1 selected!\n");
+                break; // Right
+            }
+            case 2: 
+            {
+                dy = 2; 
+                printf("case 2 selected!\n");
+                break; // Down
+            }
+            case 3: 
+            {
+                dx = -2; 
+                printf("case 3 selected!\n");
+                break; // Left
+            }
         }
-
+        printf("Before next X, X = %d\n", x);
+        printf("Before next Y, Y = %d\n", y);
         int nx = x + dx;
         int ny = y + dy;
+
+        printf("next X: %d\n", nx);
+        printf("next Y: %d\n", ny);
 
         if (nx > 0 && nx < WIDTH - 1 && ny > 0 && ny < HEIGHT - 1 && maze[nx][ny] == WALL) {
             maze[x + dx / 2][y + dy / 2] = PATH; // Remove wall between cells
