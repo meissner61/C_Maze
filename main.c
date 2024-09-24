@@ -9,7 +9,7 @@ enum { WALL, PATH };
 
 
 
-int maze[HEIGHT][WIDTH];
+int maze[WIDTH][HEIGHT];
 
 void init_maze();
 void carve_passages(int x, int y);
@@ -35,8 +35,8 @@ int main()
 
 
     // Set entrance and exit
-    maze[start_y][0] = PATH;                 // Entrance on the left edge
-    maze[start_y][WIDTH - 1] = PATH;         // Exit on the right edge
+    maze[0][start_y] = PATH;                 // Entrance on the left edge
+    maze[WIDTH - 1][start_y] = PATH;         // Exit on the right edge
 
     print_maze();
     return 0;
@@ -45,7 +45,7 @@ int main()
 void init_maze() {
     for (int y = 0; y < HEIGHT; y++)
         for (int x = 0; x < WIDTH; x++)
-            maze[y][x] = WALL;
+            maze[x][y] = WALL;
 }
 
 void carve_passages(int x, int y) 
@@ -68,7 +68,7 @@ void carve_passages(int x, int y)
         //printf("dirs[r] = temp = %d = %d\n", dirs[i], temp);
     }
 
-    maze[y][x] = PATH;
+    maze[x][y] = PATH;
 
 
     for (int i = 0; i < 4; i++) {
@@ -83,8 +83,8 @@ void carve_passages(int x, int y)
         int nx = x + dx;
         int ny = y + dy;
 
-        if (nx > 0 && nx < WIDTH - 1 && ny > 0 && ny < HEIGHT - 1 && maze[ny][nx] == WALL) {
-            maze[y + dy / 2][x + dx / 2] = PATH; // Remove wall between cells
+        if (nx > 0 && nx < WIDTH - 1 && ny > 0 && ny < HEIGHT - 1 && maze[nx][ny] == WALL) {
+            maze[x + dx / 2][y + dy / 2] = PATH; // Remove wall between cells
             carve_passages(nx, ny);
         }
     }
@@ -93,7 +93,7 @@ void carve_passages(int x, int y)
 void print_maze() {
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {
-            printf("%c", maze[y][x] == WALL ? '#' : ' ');
+            printf("%c", maze[x][y] == WALL ? '#' : ' ');
         }
         printf("\n");
     }
