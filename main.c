@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define WIDTH  11  // Maze width (odd number)
-#define HEIGHT 7  // Maze height (odd number)
+#define WIDTH  25  // Maze width (odd number)
+#define HEIGHT 25  // Maze height (odd number)
 
 enum { WALL, PATH };
 
@@ -59,14 +59,13 @@ void carve_passages(int x, int y)
     for (int i = 0; i < 4; i++) 
     {
         int r = rand() % 4;
-        //printf("r=rand()%4 = %d\n", r);
         int temp = dirs[i];
-        //printf("int temp = dirs[%d] = %d\n", i, dirs[i]);
         dirs[i] = dirs[r];
-        //printf("dirs[i] = dirs[r] == %d = %d\n", dirs[i], dirs[r]);
         dirs[r] = temp;
-        //printf("dirs[r] = temp = %d = %d\n", dirs[i], temp);
-        printf("dirs[%d] = %d\n", i, dirs[i]);
+
+        //dirs[i] = rand() % 3;
+
+        //printf("dirs[%d] = %d\n", i, dirs[i]);
     }
 
     maze[x][y] = PATH;

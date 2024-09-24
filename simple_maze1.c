@@ -3,7 +3,7 @@
 #include <time.h>
 
 #define WIDTH  20  // Width of the maze
-#define HEIGHT 10  // Height of the maze
+#define HEIGHT 20  // Height of the maze
 
 // Function to generate a basic guaranteed path from entrance to exit
 void generatePath(char maze[HEIGHT][WIDTH]) {
@@ -44,7 +44,9 @@ void addRandomWalls(char maze[HEIGHT][WIDTH]) {
     }
 }
 
-void printMaze(char maze[HEIGHT][WIDTH]) {
+void printMaze(char maze[HEIGHT][WIDTH]) 
+{
+    printf("Printing mazE!\n");
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
             printf("%c", maze[i][j]);
@@ -57,6 +59,7 @@ int main() {
     srand(time(NULL));  // Seed the random number generator
 
     char maze[HEIGHT][WIDTH];
+    printf("Test hello!\n");
 
     generatePath(maze);    // Generate the guaranteed path
     printMaze(maze);       // Display the maze
