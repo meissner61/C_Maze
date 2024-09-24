@@ -59,6 +59,8 @@ int main() {
     char maze[HEIGHT][WIDTH];
 
     generatePath(maze);    // Generate the guaranteed path
+    printMaze(maze);       // Display the maze
+
     addRandomWalls(maze);  // Add random walls around the path
     printMaze(maze);       // Display the maze
 
