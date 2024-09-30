@@ -50,8 +50,8 @@ void init_maze() {
 
 void carve_passages(int x, int y) 
 {
-    printf("X: %d\n", x);
-    printf("Y: %d\n", y);
+    //printf("X: %d\n", x);
+    //printf("Y: %d\n", y);
 
     int dirs[] = { 0, 1, 2, 3 }; // 0: Up, 1: Right, 2: Down, 3: Left
 
@@ -70,12 +70,12 @@ void carve_passages(int x, int y)
 
     maze[x][y] = PATH;
 
-    for(int i = 0; i < 4; i++)
-    {
-        printf("ENDING dirs[%d] = %d\n", i, dirs[i]);
-    }
+    // for(int i = 0; i < 4; i++)
+    // {
+    //     printf("ENDING dirs[%d] = %d\n", i, dirs[i]);
+    // }
 
-    printf(" ENDING 0 dirs[%d] = %d\n", 0, dirs[0]);
+    //printf(" ENDING 0 dirs[%d] = %d\n", 0, dirs[0]);
 
     for (int i = 0; i < 4; i++) 
     {
@@ -85,35 +85,35 @@ void carve_passages(int x, int y)
             case 0: 
             {
                 dy = -2; 
-                printf("case 0 selected!\n");
+                //printf("case 0 selected!\n");
                 break; // Up
             }
             case 1: 
             {
                 dx = 2; 
-                printf("case 1 selected!\n");
+                //printf("case 1 selected!\n");
                 break; // Right
             }
             case 2: 
             {
                 dy = 2; 
-                printf("case 2 selected!\n");
+                //printf("case 2 selected!\n");
                 break; // Down
             }
             case 3: 
             {
                 dx = -2; 
-                printf("case 3 selected!\n");
+                //printf("case 3 selected!\n");
                 break; // Left
             }
         }
-        printf("Before next X, X = %d\n", x);
-        printf("Before next Y, Y = %d\n", y);
+        //printf("Before next X, X = %d\n", x);
+        //printf("Before next Y, Y = %d\n", y);
         int nx = x + dx;
         int ny = y + dy;
 
-        printf("next X: %d\n", nx);
-        printf("next Y: %d\n", ny);
+        //printf("next X: %d\n", nx);
+        //printf("next Y: %d\n", ny);
 
         if (nx > 0 && nx < WIDTH - 1 && ny > 0 && ny < HEIGHT - 1 && maze[nx][ny] == WALL) {
             maze[x + dx / 2][y + dy / 2] = PATH; // Remove wall between cells
