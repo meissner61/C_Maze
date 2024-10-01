@@ -5,8 +5,66 @@
 #define WIDTH  20  // Width of the maze
 #define HEIGHT 20  // Height of the maze
 
+char my_maze[WIDTH * HEIGHT];
+
+void GeneratePath(char maze[])
+{
+    for(int i = 0; i < WIDTH * HEIGHT; i++)
+    {
+        maze[i] = '#';
+    }
+
+    //which side to start the path on
+    int side; //0 = left and right, 1 = top and bottom
+    srand(time(NULL));  
+    side = rand() % 2; //results 0 or 1  
+    //printf("%d",side);  
+
+    if(side == 0)// left and right side is exit
+    {
+        int x = 0;
+        int endx = WIDTH-1;
+        int y = rand() % HEIGHT;
+        int endy = rand() % HEIGHT;
+
+        maze[y*WIDTH+x] = ' ';
+        maze[endy * WIDTH + endx] = ' ';
+
+        printf("X: %d\n", x);
+        printf("Y: %d\n", y);
+        printf("EndX: %d\n", endx);
+        printf("EndY: %d\n", endy);
+    }
+    else
+    {
+        int y = 0;
+        int endy = HEIGHT - 1;
+        int x = rand()%WIDTH;
+        int endx = rand() % WIDTH;
+
+        maze[y * WIDTH + x] = ' ';
+        maze[endy * WIDTH + endx] = ' ';
+    }
+
+    
+
+}
+
+void PrintMaze(char maze[])
+{
+    for(int y = 0; y < HEIGHT; y++)
+    {
+        for(int x = 0; x < WIDTH; x++)
+        {
+            printf("%c",my_maze[y*WIDTH + x]);
+        }
+        printf("\n");
+    }
+}
+
 // Function to generate a basic guaranteed path from entrance to exit
-void generatePath(char maze[HEIGHT][WIDTH]) {
+void generatePath(char maze[HEIGHT][WIDTH]) 
+{
     // Initialize the grid with walls
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
@@ -58,14 +116,17 @@ void printMaze(char maze[HEIGHT][WIDTH])
 int main() {
     srand(time(NULL));  // Seed the random number generator
 
-    char maze[HEIGHT][WIDTH];
-    printf("Test hello!\n");
+    //char maze[HEIGHT][WIDTH];
+    //printf("Test hello!\n");
 
-    generatePath(maze);    // Generate the guaranteed path
-    printMaze(maze);       // Display the maze
+    GeneratePath(my_maze);
+    PrintMaze(my_maze);
 
-    addRandomWalls(maze);  // Add random walls around the path
-    printMaze(maze);       // Display the maze
+    // generatePath(maze);    // Generate the guaranteed path
+    // printMaze(maze);       // Display the maze
+
+    // addRandomWalls(maze);  // Add random walls around the path
+    // printMaze(maze);       // Display the maze
 
     return 0;
 }
