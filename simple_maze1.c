@@ -116,17 +116,17 @@ void printMaze(char maze[HEIGHT][WIDTH])
 int main() {
     srand(time(NULL));  // Seed the random number generator
 
-    //char maze[HEIGHT][WIDTH];
+    char maze[HEIGHT][WIDTH];
     //printf("Test hello!\n");
 
-    GeneratePath(my_maze);
-    PrintMaze(my_maze);
+    //GeneratePath(my_maze);
+    //PrintMaze(my_maze);
 
-    // generatePath(maze);    // Generate the guaranteed path
-    // printMaze(maze);       // Display the maze
+     generatePath(maze);    // Generate the guaranteed path
+     //printMaze(maze);       // Display the maze
 
-    // addRandomWalls(maze);  // Add random walls around the path
-    // printMaze(maze);       // Display the maze
+     addRandomWalls(maze);  // Add random walls around the path
+     printMaze(maze);       // Display the maze
 
     return 0;
 }
