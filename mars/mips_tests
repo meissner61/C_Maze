@@ -1,0 +1,34 @@
+.data
+    userInput: .word 0    # Memory location to store the user's input
+    prompt:    .asciiz "Enter an integer: "  # Prompt to request user input
+    nl:        .asciiz "\n"  # Newline for formatting
+
+.text
+main:
+    # Prompt the user to enter an integer
+    li $v0, 4            # Syscall for printing a string
+    la $a0, prompt       # Load address of prompt message into $a0
+    syscall              # Print the prompt message
+    
+    # Read an integer from the user
+    li $v0, 5            # Syscall for reading an integer
+    syscall              # Read the integer into $v0
+    
+    # Store the user input in memory
+    sw $v0, userInput    # Store the value in $v0 (user input) into memory at 'userInput'
+    
+    # Print a newline for formatting
+    li $v0, 4            # Syscall for printing a string
+    la $a0, nl           # Load address of newline character into $a0
+    syscall              # Print the newline
+
+    # Load the user input from memory
+    lw $a0, userInput    # Load the value from memory into $a0
+    
+    # Print the user input
+    li $v0, 1            # Syscall for printing an integer
+    syscall              # Print the integer in $a0 (user input)
+
+    # Exit the program
+    li $v0, 10           # Exit syscall
+    syscall
