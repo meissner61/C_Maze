@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define WIDTH  25  // Maze width (odd number)
-#define HEIGHT 25  // Maze height (odd number)
+#define WIDTH  21  // Maze width (odd number)
+#define HEIGHT 21  // Maze height (odd number)
 
 enum { WALL, PATH };
 
