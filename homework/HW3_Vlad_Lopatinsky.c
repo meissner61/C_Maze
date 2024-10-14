@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 void InitArray(int arr[3][5])
 {
     for(int y = 0; y < 3; y++)
@@ -20,14 +21,14 @@ int main()
 
     int arr[3][5];
 
-    // for(int y = 0; y < 3; y++)
-    // {
-    //     for(int x = 0; x < 5; x++)
-    //     {
-    //         int num = y * 5;
-    //         arr[y][x] = num + x + 1;
-    //     }
-    // }
+    for(int y = 0; y < 3; y++)
+    {
+        for(int x = 0; x < 5; x++)
+        {
+            int num = y * 5;
+            arr[y][x] = num + x + 1;
+        }
+    }
 
     for(int y = 0; y < 3; y++)
     {
