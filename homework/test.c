@@ -13,6 +13,8 @@ void print4BitBinary(unsigned int n) {
     printf("\n"); // Newline for formatting
 }
 
+
+
 int main() 
 {
     unsigned int n;
@@ -31,34 +33,39 @@ int main()
     printf("Testing Binary Print:\n\n");
 
     int X = 0b1100;
-    printf("X: %d\n", X);
+    //printf("X: %d\n", X);
+    print4BitBinary(X);
+    X = X >> 2;
+        //printf("X: %d\n", X);
+    print4BitBinary(X);
+    X = X | (1 << 3);
+    print4BitBinary(X);
+    // int bit0 = X & 1;
+    // int bit1 = (X >> 1) & 1;
 
-    int bit0 = X & 1;
-    int bit1 = (X >> 1) & 1;
+    // printf("bit0: %d\n", bit0);
+    // printf("bit1: %d\n", bit1);
 
-    printf("bit0: %d\n", bit0);
-    printf("bit1: %d\n", bit1);
-
-    X = X>>1;
     // X = X>>1;
-    //     X = X>>1;
+    // // X = X>>1;
+    // //     X = X>>1;
     
 
-    // X = X << 1;
-    //     X = X << 1;
-    //         X = X << 1;
+    // // X = X << 1;
+    // //     X = X << 1;
+    // //         X = X << 1;
 
-    printf("X: %d\n", X);
+    // printf("X: %d\n", X);
 
-    print4BitBinary(X);
+    // print4BitBinary(X);
 
-    printf("----------------:\n\n");
+    // printf("----------------:\n\n");
 
-    char buffer[33];
-    int i=5;
-    itoa(i,buffer, 2);
+    // char buffer[33];
+    // int i=5;
+    // itoa(i,buffer, 2);
 
-    printf("Binary: %s: \n", buffer);
+    // printf("Binary: %s: \n", buffer);
 
 
     return 0;
